@@ -11,22 +11,59 @@
     </head>
     <body>
         <main class="vertical-center">
-        <div class="container milk rounded">
-            <h1>Memento Mori</h1>
-            <p>Just a friendly reminder of your mortality. Will display a message every 30 minutes.</p>
-            <div class="jumbotron">
-                <img src="./skull.jpg" style="float: left; width: 100px; margin-right: 15px;" />
-                <p class="lead">
-                    <q>
-                        What, then, is the reason of this? You live as if you were destined to live forever, no thought of your frailty ever enters your head, of how much time has already gone by you take no heed. You squander time as if you drew from a full and abundant supply, though all the while that day which you bestow on some person or thing is perhaps your last.
-                        You have all the fears of mortals and all the desires of immortals.
-                    </q>
-                </p>
-                <p>
-                    — Lucius Annaeus Seneca (<a href="https://en.wikisource.org/wiki/On_the_shortness_of_life">On the Shortness of Life</a> Chapter 3)
-                </p>
-            </div>
-        <p></p>
+            <div class="container milk rounded">
+                <h1>Memento Mori</h1>
+                <p>Just a friendly reminder of your mortality. Will display a message every 30 minutes.</p>
+              <ul class="nav nav-pills black" id="navigation-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab"
+                       data-toggle="tab" href="#about"
+                       role="tab" aria-controls="about"
+                       aria-selected="true">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="faq-tab"
+                       data-toggle="tab" href="#faq"
+                       role="tab" aria-controls="faq"
+                       aria-selected="false">Why should I use this App?</a>
+               </li>
+             </ul>
+
+             <div class="tab-content" style="min-height: 400px;">
+                 <div class="tab-pane active" id="about"
+                      role="tabpanel" aria-labelledby="home-tab">
+                     <div class="jumbotron">
+                         <img class="rounded" src="./skull.jpg"
+                              style="float: left; width: 100px; margin-right: 15px;" />
+                         <p class="lead">
+                             <q>
+                                 You live as if you were destined to live forever, no thought of your frailty ever enters your head, of how much time has already gone by you take no heed. You squander time as if you drew from a full and abundant supply, though all the while that day which you bestow on some person or thing is perhaps your last.
+                                 You have all the fears of mortals and all the desires of immortals.
+                             </q>
+                         </p>
+                         <p>
+                             — Lucius Annaeus Seneca (<a href="https://en.wikisource.org/wiki/On_the_shortness_of_life">On the Shortness of Life</a> Chapter 3)
+                         </p>
+                     </div>
+                 </div>
+                 <div class="tab-pane" id="faq" role="tabpanel"
+                      aria-labelledby="faq-tab">
+                     <div class="jumbotron">
+                         <h2>Why should I use this App?</h2>
+                         <p class="lead">
+                             If you are having doubts if this App is usefull it probably won't be of use for you.
+                             I have created this App specifically so that I will be reminded to:
+                             <ul>
+                                 <li>waste less time during the day</li>
+                                 <li>enjoy the things I have</li>
+                                 <li>do more of the things that I enjoy</li>
+                                 <li>enjoy the things more that I have to do</li>
+                                 <li>recognize the people around me as precious</li>
+                             </ul>
+                         </p>
+                     </div>
+                 </div>
+                </div>
         <button class="btn btn-dark" onClick="deathReminder()">Demo</button>
         </main>
         <footer class="footer" style="position: fixed; bottom: 10px; left: 10px;">
@@ -48,6 +85,10 @@
          }
 
          setInterval(deathReminder, 1000*60*30);
+         $('#navigation a').on('click', function (e) {
+           e.preventDefault()
+           $(this).tab('show')
+        })
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
                 integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"

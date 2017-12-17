@@ -4,7 +4,7 @@ body {
 }
 
 .milk {
-    background-color: rgba(190, 190, 190, 1);
+    background-color:  rgba(200, 200, 200, 0.95);
 }
 
 .container {
@@ -21,4 +21,8 @@ body {
 
   display: flex;
   align-items: center;
+}
+.black a.active,
+.black a:hover.active  {
+    background-color: rgb(52, 58, 64) !important;
 }
