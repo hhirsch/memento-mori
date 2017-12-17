@@ -26,7 +26,13 @@
                        data-toggle="tab" href="#faq"
                        role="tab" aria-controls="faq"
                        aria-selected="false">Why should I use this App?</a>
-               </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="clock-tab"
+                       data-toggle="tab" href="#clock"
+                       role="tab" aria-controls="clock"
+                       aria-selected="false">Time is running</a>
+                </li>
              </ul>
 
              <div class="tab-content" style="min-height: 400px;">
@@ -63,8 +69,18 @@
                          </p>
                      </div>
                  </div>
-                </div>
-        <button class="btn btn-dark" onClick="deathReminder()">Demo</button>
+                 <div class="tab-pane" id="clock" role="tabpanel"
+                      aria-labelledby="clock-tab">
+                     <div class="jumbotron">
+                         <h2>Time is running</h2>
+                         <p class="lead">
+                             You have spent <span id="wastedTime">0</span> minutes on this page.
+                             <button class="btn btn-dark" onClick="resetWastedTime()">Reset</button>
+                         </p>
+                     </div>
+                 </div>
+             </div>
+             <button class="btn btn-dark" onClick="deathReminder()">Demo</button>
         </main>
         <footer class="footer" style="position: fixed; bottom: 10px; left: 10px;">
             <p class="milk rounded padded">2017 by Henry Hirsch - <a href="https://github.com/hhirsch/memento-mori">Fork on Github</a></p>
@@ -84,11 +100,36 @@
              )
          }
 
+         function loadWastedTime() {
+             if (localStorage.getItem("wastedTime") == "") {
+                 localStorage.setItem("wastedTime", 0)
+             }
+             document.getElementById("wastedTime").innerHTML = localStorage.getItem("wastedTime");
+         }
+
+         function countWastedTime() {
+             var wastedTime = Number(localStorage.getItem("wastedTime")) + 1;
+             localStorage.setItem("wastedTime", wastedTime);
+             document.getElementById("wastedTime").innerHTML = wastedTime;
+         }
+
+         function resetWastedTime() {
+             var wastedTime = 0;
+             localStorage.setItem("wastedTime", wastedTime);
+             document.getElementById("wastedTime").innerHTML = wastedTime;
+         }
+
+         $(function() {
+             loadWastedTime();
+         });
+
          setInterval(deathReminder, 1000*60*30);
+         //         setInterval(countWastedTime, 1000*60);
+         setInterval(countWastedTime, 1000*60);
          $('#navigation a').on('click', function (e) {
-           e.preventDefault()
-           $(this).tab('show')
-        })
+             e.preventDefault()
+             $(this).tab('show')
+         })
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
                 integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
