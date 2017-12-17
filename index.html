@@ -3,14 +3,16 @@
         <title>Memento Mori - Just a friendly reminder that you are going to die</title>
         <link href="./favicon.ico" rel="icon" type="image/x-icon" />
         <link rel="stylesheet"
+              href="style.css" />
+        <link rel="stylesheet"
               href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
               integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
               crossorigin="anonymous" />
     </head>
     <body>
-        <main>
-        <div class="container">
-            <h1>Memonto Mori</h1>
+        <main class="vertical-center">
+        <div class="container milk rounded">
+            <h1>Memento Mori</h1>
             <p>Just a friendly reminder of your mortality. Will display a message every 30 minutes.</p>
             <div class="jumbotron">
                 <img src="./skull.jpg" style="float: left; width: 100px; margin-right: 15px;" />
@@ -28,7 +30,7 @@
         <button class="btn btn-dark" onClick="deathReminder()">Demo</button>
         </main>
         <footer class="footer" style="position: fixed; bottom: 10px; left: 10px;">
-            <p>2017 by Henry Hirsch - <a href="https://github.com/hhirsch/memento-mori">Fork on Github</a></p>
+            <p class="milk rounded padded">2017 by Henry Hirsch - <a href="https://github.com/hhirsch/memento-mori">Fork on Github</a></p>
         </footer>
         </div>
         <script src="https://code.jquery.com/jquery-3.1.0.min.js"
